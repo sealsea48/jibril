@@ -1,0 +1,1 @@
+This is a simple flask app that is ready to be deployed on your website or localhost. You can use it to scrape a book from shamela.ws website to docx. Only you need to do is insert url of any book the app will track by itself the beggining and the end of the book and will create fully formatted word document file format for the book
