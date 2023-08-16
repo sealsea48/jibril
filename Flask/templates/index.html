@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL to DOCX Converter</title>
+</head>
+<body>
+    <h1>URL to DOCX Converter</h1>
+    <form method="POST" action="/" enctype="multipart/form-data" onsubmit="showLoading()">
+        <label for="start_url">Enter URL:</label>
+        <input type="text" name="start_url" required>
+        <button type="submit">Convert and Download</button>
+    </form>
+    
+    <div id="loading" style="display: none;">
+        <p>Processing... Please wait.</p>
+    </div>
+    
+    {% if download_link %}
+    <p><a href="{{ url_for('download_file', filename=download_link) }}">Download DOCX File</a></p>
+    {% endif %}
+    
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
