@@ -9,21 +9,18 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Define the route for the homepage
 @app.route('/', methods=['GET', 'POST'])
-def homepage():
-    download_link = None  # Default value for the download link
-
+def index():
     if request.method == 'POST':
         start_url = request.form['start_url']
         output_filename = 'combined-output.docx'
         save_path = os.path.join(script_directory, output_filename)
         process_multiple_pages(start_url, save_path)
-        download_link = output_filename
-
-    return render_template('index.html', download_link=download_link)
+        return render_template('index.html', download_link=output_filename)
+    return render_template('index.html', download_link=None)
 
 @app.route('/download/<filename>')
-def download(filename):
+def download_file(filename):
     return send_from_directory(script_directory, filename, as_attachment=True)
 
-homepage()
-download(filename)
+if __name__ == '__main__':
+    app.run(debug=True)
