@@ -199,8 +199,8 @@ def process_multiple_pages(start_url, output_filename='combined-output.docx'):
     print(f"Combined text from Chapter {chapter_start} to {chapter_end} saved to '{output_filename}'")
 
 # Input the starting URL
-#start_url = input("Enter the first URL: ")
-start_url = 'https://shamela.ws/book/6388'
+start_url = input("Enter the first URL: ")
+#start_url = 'https://shamela.ws/book/6388'
 # Call the function to process multiple pages and create the combined DOCX document
 process_multiple_pages(start_url)
-
+print(output_filename)
